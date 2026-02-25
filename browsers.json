@@ -6,7 +6,7 @@
         "image": "selenoid/chrome:128.0",
         "port": "4444",
         "path": "/wd/hub",
-        "shmSize": 268435456
+        "shmSize": 2147483648
       }
     }
   }
