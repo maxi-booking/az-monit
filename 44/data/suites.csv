@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","27765","Search results can be opened and displayed","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:43:07 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","searchResultsCanBeLoaded"
+"","28709","Can start reserving a room","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:43:08 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","reserveARoomOpens"
+"","15797","Main page can be opened and loaded","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:42:55 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","openMainPage"
+"","21457","Pay online is working","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:43:01 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","payOnlineFormWorks"
+"","30535","Reservation is working","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:43:10 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","reserveARoomComplete"
+"","31715","Pay online is loading","","Wed Feb 25 22:42:39 UTC 2026","passed","Wed Feb 25 22:43:11 UTC 2026","","smokeTests.PositiveTests","smokeTests.PositiveTests","payOnlineFormLoads"
