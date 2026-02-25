@@ -96,7 +96,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
-          force_orphan: true
 
       - name: Upload artifacts on failure
         if: failure()
@@ -110,14 +109,14 @@ jobs:
 
       - name: Calculate REPORT_NUM
         run: |
-          REPORT_NUM=$(( $(ls -d gh-pages/[0-9]*/ 2>/dev/null | sed 's|gh-pages/||;s|/||' | sort -n | tail -1) + 1 ))
+          REPORT_NUM=$(ls -d allure-history/[0-9]*/ 2>/dev/null | sed 's|allure-history/||;s|/||' | sort -n | tail -1)
           echo "REPORT_NUM=$REPORT_NUM" >> $GITHUB_ENV
 
       - name: Send email
         if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.yandex.ru
+          server_address: smtp.gmail.com
           server_port: 465
           secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
