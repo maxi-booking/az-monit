@@ -23,13 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
-    services:
-      selenium:
-        image: selenoid/chrome:latest
-        ports:
-          - 4444:4444
-        options: --shm-size="2g"
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,11 +37,23 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Wait for Selenium to be ready
+      - name: Pull Chrome image
+        run: docker pull selenoid/chrome:${{ env.BROWSER_VERSION }}
+
+      - name: Start Selenoid
+        run: |
+          docker run -d \
+            --name selenoid \
+            -p 4444:4444 \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
+            aerokube/selenoid:latest
+
+      - name: Wait for Selenoid to be ready
         run: |
           for i in {1..30}; do
             curl -sf http://localhost:4444/status && break
-            echo "Waiting for Selenium... ($i/30)"
+            echo "Waiting for Selenoid... ($i/30)"
             sleep 2
           done
 
