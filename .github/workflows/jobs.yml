@@ -48,6 +48,26 @@ jobs:
               -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
               aerokube/selenoid:latest
 
+      - name: Pull Selenoid browser image
+        run: docker pull selenoid/chrome:128.0
+
+      - name: Start Selenoid
+        run: |
+          docker run -d \
+            --name selenoid \
+            -p 4444:4444 \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
+            aerokube/selenoid:latest
+
+      - name: Wait for Selenoid to be ready
+        run: |
+          for i in {1..30}; do
+            curl -sf http://localhost:4444/status && break
+            echo "Waiting for Selenoid... ($i/30)"
+            sleep 2
+          done
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
