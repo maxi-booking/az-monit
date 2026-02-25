@@ -59,7 +59,8 @@ jobs:
             EXTRA_ARGS="-DexcludeTags=${{ inputs.exclude_tags }}"
           fi
           ./gradlew clean test \
-            -Denvironment=remote_chrome \
+           --warning-mode all \
+            -Denvironment=local_chrome \
             -DbrowserVersion=${{ env.BROWSER_VERSION }} \
             -Dthreads=${{ env.THREADS }} \
             $EXTRA_ARGS \
