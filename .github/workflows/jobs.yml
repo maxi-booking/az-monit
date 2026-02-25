@@ -24,50 +24,13 @@ jobs:
     timeout-minutes: 60
 
     services:
-      selenoid:
-        image: aerokube/selenoid:latest
+      selenium:
+        image: selenoid/chrome:96.0
         ports:
           - 4444:4444
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-        options: >-
-          --shm-size="2g"
-          --health-cmd="curl -f http://localhost:4444/status || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+        options: --shm-size="2g"
 
     steps:
-      - name: Start Selenoid
-        run: |
-            docker pull selenoid/chrome:128.0
-            docker run -d \
-              --name selenoid \
-              -p 4444:4444 \
-              -v /var/run/docker.sock:/var/run/docker.sock \
-              -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
-              aerokube/selenoid:latest
-
-      - name: Pull Selenoid browser image
-        run: docker pull selenoid/chrome:128.0
-
-      - name: Start Selenoid
-        run: |
-          docker run -d \
-            --name selenoid \
-            -p 4444:4444 \
-            -v /var/run/docker.sock:/var/run/docker.sock \
-            -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
-            aerokube/selenoid:latest
-
-      - name: Wait for Selenoid to be ready
-        run: |
-          for i in {1..30}; do
-            curl -sf http://localhost:4444/status && break
-            echo "Waiting for Selenoid... ($i/30)"
-            sleep 2
-          done
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
