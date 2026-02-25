@@ -24,10 +24,12 @@ jobs:
     timeout-minutes: 60
 
     services:
-      selenium:
-        image: selenoid/chrome:128.0
+      selenoid:
+        image: aerokube/selenoid:latest
         ports:
           - 4444:4444
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
         options: >-
           --shm-size="2g"
           --health-cmd="curl -f http://localhost:4444/status || exit 1"
@@ -109,7 +111,6 @@ jobs:
 
       - name: Calculate REPORT_NUM
         run: |
-          ls -la allure-history/ || echo "allure-history is empty"
           REPORT_NUM=$(ls -d allure-history/[0-9]*/ 2>/dev/null | sed 's|allure-history/||;s|/||' | sort -n | tail -1)
           echo "REPORT_NUM=$REPORT_NUM"
           echo "REPORT_NUM=$REPORT_NUM" >> $GITHUB_ENV
