@@ -1,4 +1,4 @@
-name: Selenide Java CI
+name: Selenide Java CI #
 
 on: [ push, workflow_dispatch ]
 
@@ -96,25 +96,48 @@ jobs:
             build/allure-results/
           retention-days: 7
 
+      - name: Send email with results
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "[${{ job.status }}] Test results — ${{ github.repository }}"
+          to: qatestkra@gmail.com
+          from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
+          body: |
+            Azovsky tests completed with status: ${{ job.status }}
+
+            See report:    https://kratakey.github.io/Test
+
       - name: Send Telegram notification
         if: always()
         run: |
+          REPORT_NUM=$(( $(ls -d gh-pages/[0-9]*/ 2>/dev/null | sed 's|gh-pages/||;s|/||' | sort -n | tail -1) + 1 ))
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           SUMMARY="allure-report/widgets/summary.json"
-          PASSED=$(jq  '.statistic.passed'  $SUMMARY)
-          FAILED=$(jq  '.statistic.failed'  $SUMMARY)
-          BROKEN=$(jq  '.statistic.broken'  $SUMMARY)
+          
+          PASSED=$(jq '.statistic.passed'  $SUMMARY)
+          FAILED=$(jq '.statistic.failed'  $SUMMARY)
+          BROKEN=$(jq '.statistic.broken'  $SUMMARY)
           SKIPPED=$(jq '.statistic.skipped' $SUMMARY)
-          TOTAL=$(jq   '.statistic.total'   $SUMMARY)
+          TOTAL=$(jq  '.statistic.total'   $SUMMARY)
+          
           STATUS="${{ job.status }}"
           EMOJI=$([ "$STATUS" = "success" ] && echo "✅" || echo "❌")
-          TEXT="${EMOJI} *${{ inputs.job_label }} — ${REPO_NAME}*
+          
+          TEXT="${EMOJI} *Test Results ${REPO_NAME}:*
             Passed:  \`${PASSED}\`
             Failed:  \`${FAILED}\`
             Broken:  \`${BROKEN}\`
             Skipped: \`${SKIPPED}\`
-            Total:   \`${TOTAL}\`
-          https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}"
+               Total:   \`${TOTAL}\`
+          
+          https://kratakey.github.io/Test/${REPORT_NUM}"
+          
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d parse_mode="Markdown" \
