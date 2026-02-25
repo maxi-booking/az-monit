@@ -38,6 +38,16 @@ jobs:
           --health-retries=5
 
     steps:
+      - name: Start Selenoid
+        run: |
+            docker pull selenoid/chrome:128.0
+            docker run -d \
+              --name selenoid \
+              -p 4444:4444 \
+              -v /var/run/docker.sock:/var/run/docker.sock \
+              -v ${{ github.workspace }}/browsers.json:/etc/selenoid/browsers.json \
+              aerokube/selenoid:latest
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
