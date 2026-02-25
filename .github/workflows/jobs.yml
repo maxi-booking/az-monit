@@ -1,0 +1,151 @@
+name: Jobs
+
+on:
+  workflow_call:
+    inputs:
+      exclude_tags:
+        type: string
+        default: ''
+      report_on_failure_only:
+        type: boolean
+        default: false
+      job_label:
+        type: string
+        default: 'Run'
+
+
+env:
+  JAVA_VERSION: '17'
+  BROWSER_VERSION: '128.0'
+  THREADS: '8'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    services:
+      selenium:
+        image: selenoid/chrome:128.0
+        ports:
+          - 4444:4444
+        options: >-
+          --shm-size="2g"
+          --health-cmd="curl -f http://localhost:4444/status || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - run: chmod +x gradlew
+
+      - name: Wait for Selenium
+        run: |
+          for i in {1..30}; do
+            curl -sf http://localhost:4444/status && break
+            echo "Waiting... ($i/30)"; sleep 2
+          done
+
+      - name: Run tests
+        run: |
+          EXTRA_ARGS=""
+          if [ -n "${{ inputs.exclude_tags }}" ]; then
+            EXTRA_ARGS="-DexcludeTags=${{ inputs.exclude_tags }}"
+          fi
+          ./gradlew clean test \
+            -Denvironment=local_chrome \
+            -DbrowserVersion=${{ env.BROWSER_VERSION }} \
+            -Dthreads=${{ env.THREADS }} \
+            $EXTRA_ARGS \
+            --no-daemon
+
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: ${{ always() }}
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@master
+        if: ${{ always() }}
+        id: allure-report
+        with:
+          allure_results: build/allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
+
+      - name: Deploy report to GitHub Pages
+        if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
+
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ inputs.job_label }}
+          path: |
+            build/reports/
+            build/allure-results/
+          retention-days: 20
+
+      - name: Calculate REPORT_NUM
+        run: |
+          REPORT_NUM=$(( $(ls -d gh-pages/[0-9]*/ 2>/dev/null | sed 's|gh-pages/||;s|/||' | sort -n | tail -1) + 1 ))
+          echo "REPORT_NUM=$REPORT_NUM" >> $GITHUB_ENV
+
+      - name: Send email
+        if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.yandex.ru
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "[${{ job.status }}] ${{ inputs.job_label }} — ${{ github.repository }}"
+          to: qatestkra@gmail.com
+          from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
+          body: |
+            ${{ inputs.job_label }} завершён со статусом: ${{ job.status }}
+            See report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}
+
+      - name: Send Telegram notification
+        if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          SUMMARY="allure-report/widgets/summary.json"
+          PASSED=$(jq  '.statistic.passed'  $SUMMARY)
+          FAILED=$(jq  '.statistic.failed'  $SUMMARY)
+          BROKEN=$(jq  '.statistic.broken'  $SUMMARY)
+          SKIPPED=$(jq '.statistic.skipped' $SUMMARY)
+          TOTAL=$(jq   '.statistic.total'   $SUMMARY)
+          STATUS="${{ job.status }}"
+          EMOJI=$([ "$STATUS" = "success" ] && echo "✅" || echo "❌")
+          TEXT="${EMOJI} *${{ inputs.job_label }} — ${REPO_NAME}*
+            Passed:  \`${PASSED}\`
+            Failed:  \`${FAILED}\`
+            Broken:  \`${BROKEN}\`
+            Skipped: \`${SKIPPED}\`
+            Total:   \`${TOTAL}\`
+          https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}"
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d parse_mode="Markdown" \
+            --data-urlencode text="$TEXT"

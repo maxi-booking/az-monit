@@ -1,0 +1,39 @@
+name: Selenide Java CI
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+    - cron: "0 7 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  on-push:
+    if: github.event_name != 'schedule'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'On Push'
+      report_on_failure_only: false
+
+  scheduled-quick:
+    if: github.event.schedule == '*/5 * * * *'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'Monitoring'
+      exclude_tags: 'Impact'
+      report_on_failure_only: true
+
+  scheduled-daily:
+    if: github.event.schedule == '0 7 * * *'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'Daily Run'
+      report_on_failure_only: false
