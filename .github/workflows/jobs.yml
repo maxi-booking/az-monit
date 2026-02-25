@@ -13,7 +13,6 @@ on:
         type: string
         default: 'Run'
 
-
 env:
   JAVA_VERSION: '17'
   BROWSER_VERSION: '128.0'
