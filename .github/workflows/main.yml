@@ -96,23 +96,6 @@ jobs:
             build/allure-results/
           retention-days: 7
 
-      - name: Send email with results
-        if: always()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "[${{ job.status }}] Test results — ${{ github.repository }}"
-          to: qatestkra@gmail.com
-          from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
-          body: |
-            Azovsky tests completed with status: ${{ job.status }}
-
-            See report:    https://kratakey.github.io/Test
-
       - name: Send Telegram notification
         if: always()
         run: |
@@ -135,8 +118,6 @@ jobs:
             Broken:  \`${BROKEN}\`
             Skipped: \`${SKIPPED}\`
                Total:   \`${TOTAL}\`
-          
-          https://kratakey.github.io/Test/${REPORT_NUM}"
           
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
