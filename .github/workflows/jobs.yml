@@ -109,6 +109,7 @@ jobs:
 
       - name: Calculate REPORT_NUM
         run: |
+          ls -la allure-history/ || echo "allure-history is empty"
           REPORT_NUM=$(ls -d allure-history/[0-9]*/ 2>/dev/null | sed 's|allure-history/||;s|/||' | sort -n | tail -1)
           echo "REPORT_NUM=$REPORT_NUM"
           echo "REPORT_NUM=$REPORT_NUM" >> $GITHUB_ENV
