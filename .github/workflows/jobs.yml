@@ -5,7 +5,7 @@ on:
     inputs:
       exclude_tags:
         type: string
-        default: ''
+        default: 'Impact'
       report_on_failure_only:
         type: boolean
         default: false
@@ -36,7 +36,8 @@ jobs:
           --health-retries=5
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up JDK ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v4
@@ -45,16 +46,18 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - run: chmod +x gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-      - name: Wait for Selenium
+      - name: Wait for Selenium to be ready
         run: |
           for i in {1..30}; do
             curl -sf http://localhost:4444/status && break
-            echo "Waiting... ($i/30)"; sleep 2
+            echo "Waiting for Selenium... ($i/30)"
+            sleep 2
           done
 
-      - name: Run tests
+      - name: Build and run tests
         run: |
           EXTRA_ARGS=""
           if [ -n "${{ inputs.exclude_tags }}" ]; then
