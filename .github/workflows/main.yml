@@ -20,6 +20,7 @@ jobs:
     with:
       job_label: 'On Push'
       report_on_failure_only: false
+      exclude_tags: ''
 
   scheduled-monitoring:
     if: github.event.schedule == '*/5 * * * *'
