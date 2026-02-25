@@ -71,10 +71,6 @@ jobs:
             $EXTRA_ARGS \
             --no-daemon
 
-      - name: Dump Selenoid logs
-        if: always()
-        run: docker logs selenoid
-
       - name: Get Allure history
         uses: actions/checkout@v4
         if: ${{ always() }}
