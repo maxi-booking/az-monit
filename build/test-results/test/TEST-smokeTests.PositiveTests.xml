@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="smokeTests.PositiveTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-02-25T16:22:26.405Z" hostname="RYZEN-XTX" time="22.978">
+  <properties/>
+  <testcase name="Main page can be opened and loaded" classname="smokeTests.PositiveTests" time="10.657"/>
+  <testcase name="Pay online is working" classname="smokeTests.PositiveTests" time="11.774"/>
+  <testcase name="Can start reserving a room" classname="smokeTests.PositiveTests" time="16.562"/>
+  <testcase name="Reservation is working" classname="smokeTests.PositiveTests" time="16.837"/>
+  <testcase name="Search results can be opened and displayed" classname="smokeTests.PositiveTests" time="19.469"/>
+  <testcase name="Pay online is loading" classname="smokeTests.PositiveTests" time="22.813"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[ForkJoinPool-1-worker-2] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 31 - let's create a new webdriver
+[ForkJoinPool-1-worker-1] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 30 - let's create a new webdriver
+[ForkJoinPool-1-worker-4] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 33 - let's create a new webdriver
+[ForkJoinPool-1-worker-6] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 35 - let's create a new webdriver
+[ForkJoinPool-1-worker-3] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 32 - let's create a new webdriver
+[ForkJoinPool-1-worker-5] INFO com.codeborne.selenide.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 34 - let's create a new webdriver
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:28 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (144.0.7559.96) detected in PATH at C:\WINDOWS\chromedriver.exe might not be compatible with the detected chrome version (145.0.7632.110); currently, chromedriver 145.0.7632.117 is recommended for chrome 145.*, so it is advised to delete the driver in PATH and retry
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+Feb 25, 2026 7:22:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 145, returning the closest version; found: 144; Please update to a Selenium version that supports CDP version 145
+[ForkJoinPool-1-worker-2] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+[ForkJoinPool-1-worker-6] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+[ForkJoinPool-1-worker-3] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+[ForkJoinPool-1-worker-1] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+[ForkJoinPool-1-worker-4] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+[ForkJoinPool-1-worker-5] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide 7.14.0 / Selenium 4.40.0 / chrome 145.0.7632.110 windows
+]]></system-err>
+</testsuite>

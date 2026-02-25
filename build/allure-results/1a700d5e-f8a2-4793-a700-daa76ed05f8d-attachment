@@ -1,0 +1,8 @@
+[2026-02-20T00:27:59.962Z] [WARNING] https://azovsky.ru/ 22 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:27:59.962Z] [WARNING] https://azovsky.ru/ 25 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:27:59.962Z] [WARNING] https://azovsky.ru/ 28 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:28:04.613Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 21 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:28:04.613Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 24 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:28:04.613Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 27 <link rel=preload> has an unsupported `type` value
+[2026-02-20T00:28:05.201Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1620:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-02-20T00:28:06.201Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught SecurityError: Failed to read a named property 'origin' from 'Location': Blocked a frame with origin "https://azovsky.ru" from accessing a frame with origin "https://az.maxibooking.ru". Protocols, domains, and ports must match.
