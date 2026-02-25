@@ -65,7 +65,7 @@ jobs:
           fi
           ./gradlew clean test \
            --warning-mode all \
-            -Denvironment=local_chrome \
+            -Denvironment=remote_chrome \
             -DbrowserVersion=${{ env.BROWSER_VERSION }} \
             -Dthreads=${{ env.THREADS }} \
             $EXTRA_ARGS \
