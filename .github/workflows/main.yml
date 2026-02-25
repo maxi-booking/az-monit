@@ -1,144 +1,39 @@
-name: Selenide Java CI #
+name: Selenide Java CI
 
-on: [ push, workflow_dispatch ]
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+    - cron: "0 7 * * *"
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-env:
-  JAVA_VERSION: '17'
-  BROWSER_VERSION: '128.0'
-  THREADS: '8'
-
 jobs:
-  integration-tests:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+  on-push:
+    if: github.event_name != 'schedule'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'On Push'
+      report_on_failure_only: false
 
-    services:
-      selenium:
-        image: selenoid/chrome:128.0
-        ports:
-          - 4444:4444
-        options: >-
-          --shm-size="2g"
-          --health-cmd="curl -f http://localhost:4444/status || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+  scheduled-monitoring:
+    if: github.event.schedule == '*/5 * * * *'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'Monitoring'
+      exclude_tags: 'Impact'
+      report_on_failure_only: true
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v4
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'gradle'
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Wait for Selenium to be ready
-        run: |
-          for i in {1..30}; do
-            curl -sf http://localhost:4444/status && break
-            echo "Waiting for Selenium... ($i/30)"
-            sleep 2
-          done
-
-      - name: Build and run tests
-        run: |
-          ./gradlew clean test \
-            -Denvironment=local_chrome \
-            -DbrowserVersion=${{ env.BROWSER_VERSION }} \
-            -Dthreads=${{ env.THREADS }} \
-            --no-daemon
-
-      - name: Get Allure history
-        uses: actions/checkout@v4
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: build/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-          keep_reports: 20
-
-      - name: Deploy report to GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
-
-      - name: Upload test artifacts on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-artifacts
-          path: |
-            build/reports/
-            build/allure-results/
-          retention-days: 7
-
-      - name: Send email with results
-        if: always()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "[${{ job.status }}] Test results — ${{ github.repository }}"
-          to: qatestkra@gmail.com
-          from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
-          body: |
-            Azovsky tests completed with status: ${{ job.status }}
-
-            See report:    https://kratakey.github.io/Test
-
-      - name: Send Telegram notification
-        if: always()
-        run: |
-          REPORT_NUM=$(( $(ls -d gh-pages/[0-9]*/ 2>/dev/null | sed 's|gh-pages/||;s|/||' | sort -n | tail -1) + 1 ))
-          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          SUMMARY="allure-report/widgets/summary.json"
-          
-          PASSED=$(jq '.statistic.passed'  $SUMMARY)
-          FAILED=$(jq '.statistic.failed'  $SUMMARY)
-          BROKEN=$(jq '.statistic.broken'  $SUMMARY)
-          SKIPPED=$(jq '.statistic.skipped' $SUMMARY)
-          TOTAL=$(jq  '.statistic.total'   $SUMMARY)
-          
-          STATUS="${{ job.status }}"
-          EMOJI=$([ "$STATUS" = "success" ] && echo "✅" || echo "❌")
-          
-          TEXT="${EMOJI} *Test Results ${REPO_NAME}:*
-            Passed:  \`${PASSED}\`
-            Failed:  \`${FAILED}\`
-            Broken:  \`${BROKEN}\`
-            Skipped: \`${SKIPPED}\`
-               Total:   \`${TOTAL}\`
-          
-          https://kratakey.github.io/Test/${REPORT_NUM}"
-          
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-            -d parse_mode="Markdown" \
-            --data-urlencode text="$TEXT"
+  scheduled-daily:
+    if: github.event.schedule == '0 7 * * *'
+    uses: ./.github/workflows/jobs.yml
+    secrets: inherit
+    with:
+      job_label: 'Daily Run'
+      report_on_failure_only: false
