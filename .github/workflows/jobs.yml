@@ -132,7 +132,7 @@ jobs:
           from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
           body: |
             ${{ inputs.job_label }} finished with status: ${{ job.status }}
-            See report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}
+            See report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.REPORT_NUM }}
 
       - name: Send Telegram notification
         if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
