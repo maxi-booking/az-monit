@@ -124,7 +124,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "[${{ job.status }}] ${{ inputs.job_label }} — ${{ github.repository }}"
-          to: qatestkra@gmail.com #webmalc@gmail.com
+          to: webmalc@gmail.com
           from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
           body: |
             ${{ inputs.job_label }} finished with status: ${{ job.status }}
