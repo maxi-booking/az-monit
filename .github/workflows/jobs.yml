@@ -124,7 +124,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "[${{ job.status }}] ${{ inputs.job_label }} — ${{ github.repository }}"
-          to: qatestkra@gmail.com #webmalc@gmail.com
+          to: webmalc@gmail.com
           from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
           body: |
             ${{ inputs.job_label }} finished with status: ${{ job.status }}
@@ -141,7 +141,7 @@ jobs:
           SKIPPED=$(jq '.statistic.skipped' $SUMMARY)
           TOTAL=$(jq   '.statistic.total'   $SUMMARY)
           STATUS="${{ job.status }}"
-          EMOJI=$([ "$STATUS" = "success" ] && echo "✅" || echo "❌")
+          EMOJI=$([ "$FAILED" = "0" ] && [ "$BROKEN" = "0" ] && echo "✅" || echo "❌")
           TEXT="${EMOJI} *${{ inputs.job_label }} — ${REPO_NAME}*
             Passed:  \`${PASSED}\`
             Failed:  \`${FAILED}\`
