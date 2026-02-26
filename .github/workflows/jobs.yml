@@ -124,9 +124,10 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "[${{ job.status }}] ${{ inputs.job_label }} — ${{ github.repository }}"
-          to: webmalc@gmail.com
+          to: qatestkra@gmail.com #webmalc@gmail.com
           from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
           body: |
+            TEST TEST TEST!!!
             ${{ inputs.job_label }} finished with status: ${{ job.status }}
             See report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.REPORT_NUM }}
 
