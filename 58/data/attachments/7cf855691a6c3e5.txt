@@ -1,0 +1,9 @@
+[2026-02-26T11:25:26.600Z] [WARNING] https://azovsky.ru/ 22 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:26.600Z] [WARNING] https://azovsky.ru/ 25 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:26.600Z] [WARNING] https://azovsky.ru/ 28 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:39.228Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 21 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:39.228Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 24 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:39.228Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 27 <link rel=preload> has an unsupported `type` value
+[2026-02-26T11:25:40.225Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1620:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-02-26T11:25:42.101Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
+[2026-02-26T11:25:42.539Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/927/fn2okyk0/xhr_send?ci=509878683.493855051.1772105132&hi=836991364&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2Foplatit-uslugi%2F&t=1772105142393 - Failed to load resource: the server responded with a status of 404 ()
