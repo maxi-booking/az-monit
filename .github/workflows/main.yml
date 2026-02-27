@@ -19,11 +19,11 @@ jobs:
     secrets: inherit
     with:
       job_label: 'On Push'
-      report_on_failure_only: false
       exclude_tags: ''
+      report_on_failure_only: false
 
   scheduled-monitoring:
-    if: github.event.schedule == '*/5 * * * *'
+    if: github.event.schedule == '*/30 * * * *'
     uses: ./.github/workflows/jobs.yml
     secrets: inherit
     with:
@@ -37,4 +37,5 @@ jobs:
     secrets: inherit
     with:
       job_label: 'Daily Run'
+      exclude_tags: ''
       report_on_failure_only: false
