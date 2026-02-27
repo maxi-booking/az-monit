@@ -1,4 +1,4 @@
-name: Jobs #
+name: Jobs
 
 on:
   workflow_call:
