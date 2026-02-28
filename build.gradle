@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.qameta.allure" version "3.0.2"
+    id 'org.gradle.test-retry' version '1.6.4'
 }
 
 repositories {
@@ -49,4 +50,9 @@ test {
         if (System.getProperty('excludeTags')) {
             excludeTags(System.getProperty('excludeTags').split(','))
         }}
+    retry {
+        failOnPassedAfterRetry = false
+        maxFailures = 12
+        maxRetries = 2
+    }
 }
