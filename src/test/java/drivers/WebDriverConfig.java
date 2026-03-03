@@ -39,4 +39,12 @@ public interface WebDriverConfig extends Config {
     @Config.Key("browser")
     @Config.DefaultValue("all")
     Boolean getBrowser();
+
+    @Config.Key("startOfTheSeason")
+    @Config.DefaultValue("")
+    String getStartOfTheSeason();
+
+    @Config.Key("endOfTheSeason")
+    @Config.DefaultValue("")
+    String getEndOfTheSeason();
 }

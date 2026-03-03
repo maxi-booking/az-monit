@@ -11,6 +11,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.BookingForm;
 import pages.Main;
 import pages.Payment;
 import pages.Search;
@@ -22,12 +23,14 @@ public class TestBase extends TestData {
 
     private static final WebDriverConfig config =
             ConfigFactory.create(WebDriverConfig.class, System.getProperties());
-
     public static final String
-            URL_PRODUCTION = "https://azovsky.ru/";
+            URL_FRONTEND = "https://azovsky.ru/",
+            URL_BACKEND = "https://azovsky.ru/",
+            URL_BOOKING_FORM = "https://az.maxibooking.ru/online_booking/form";
 
     public static Main main = new Main();
     public static Search src = new Search();
+    public static BookingForm bkn = new BookingForm();
     public static Payment pay = new Payment();
 
     @BeforeAll
