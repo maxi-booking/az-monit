@@ -14,7 +14,7 @@
 
 ### Запуск с параметрами, пример:
 
-`./gradlew clean test -DbrowserName=chrome -DbrowserVersion=128.0`
+`./gradlew clean test -DbrowserName=chrome -DbrowserVersion=128.0 -DstartOfTheSeason=24.04.2030 -DendOfTheSeason=15.10.2030`
 
 
 ### Доступные параметры:
@@ -32,6 +32,10 @@
 * `timeout` - максимальная задержка до падения теста, default: `10000` ms
 
 * `remote` - адрес удаленного сервера Selenide; игнорируется, если оставить пустым
+
+* `startOfTheSeason` - дата начала сезона (нужно для генерации даты для фильтров поиска), формат `dd.MM.yyyy`
+
+* `endOfTheSeason` - дата конца сезона (нужно для генерации даты для фильтров поиска), формат `dd.MM.yyyy`
 
 браузеры: `chrome`, `safari`, `firefox`, `legacy_firefox`, `ie`, `opera`, `edge`.
 
