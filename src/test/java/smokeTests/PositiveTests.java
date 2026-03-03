@@ -79,7 +79,6 @@ public class PositiveTests extends TestBase {
     }
 
     @Test
-    @Disabled
     @Tag("Impact")
     @Feature("Search")
     @Owner("Kratakey")
