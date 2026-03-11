@@ -29,6 +29,13 @@ public class Search extends TestBase {
         });
     }
 
+    public void closeTheBanner() {
+        step("Closing the banner", () -> {
+            $(".white-saas-generator").shouldBe(visible, Duration.ofSeconds(30));
+            $(".white-saas-generator-close-button").click();
+        });
+    }
+
     public void clickReserveARoom(int order) {
         step("Click to reserve a room", () -> {
             $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start)).

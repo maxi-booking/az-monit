@@ -23,6 +23,7 @@ public class PositiveNoRetryTests extends TestBase {
         src.confirmSearchResultsPageLoaded();
         src.confirmSearchResultsAreVisible();
         Map<Integer, Integer> imagesMap = src.scanImagesIntoLinkedHashMap();
+        src.closeTheBanner();
         src.imageShouldBeLoaded(imagesMap);
     }
 }
