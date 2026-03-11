@@ -114,6 +114,18 @@ jobs:
           REPORT_NUM=$(ls -d allure-history/[0-9]*/ 2>/dev/null | sed 's|allure-history/||;s|/||' | sort -n | tail -1)
           echo "REPORT_NUM=$REPORT_NUM"
           echo "REPORT_NUM=$REPORT_NUM" >> $GITHUB_ENV
+          SUMMARY="allure-report/widgets/summary.json"
+          echo "PASSED=$(jq  '.statistic.passed'  $SUMMARY)" >> $GITHUB_ENV
+          echo "FAILED=$(jq  '.statistic.failed'  $SUMMARY)" >> $GITHUB_ENV
+          echo "BROKEN=$(jq  '.statistic.broken'  $SUMMARY)" >> $GITHUB_ENV
+          echo "SKIPPED=$(jq '.statistic.skipped' $SUMMARY)" >> $GITHUB_ENV
+          echo "TOTAL=$(jq   '.statistic.total'   $SUMMARY)" >> $GITHUB_ENV
+          FAILED_VAL=$(jq '.statistic.failed' $SUMMARY)
+          BROKEN_VAL=$(jq '.statistic.broken' $SUMMARY)
+          EMOJI=$([ "$FAILED_VAL" = "0" ] && [ "$BROKEN_VAL" = "0" ] && echo "✅" || echo "❌")
+          echo "EMOJI=$EMOJI" >> $GITHUB_ENV
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Send email
         if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
@@ -124,12 +136,19 @@ jobs:
           secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "[${{ job.status }}] ${{ inputs.job_label }} — ${{ github.repository }}"
+          subject: "${{ env.EMOJI }} ${{ inputs.job_label }} — ${{ env.REPO_NAME }}"
           to: ${{ secrets.EMAIL_RECIPIENTS }}
           from: "GitHub CI <${{ secrets.EMAIL_USERNAME }}>"
-          body: |
-            ${{ inputs.job_label }} finished with status: ${{ job.status }}
-            See report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.REPORT_NUM }}/
+          html_body: |
+            <p>${{ env.EMOJI }} ${{ inputs.job_label }} — ${{ env.REPO_NAME }}</p>            
+            <p>
+            Passed:  <code style="color:#2196F3">${{ env.PASSED }}</code><br>
+            Failed:  <code style="color:#2196F3">${{ env.FAILED }}</code><br>
+            Broken:  <code style="color:#2196F3">${{ env.BROKEN }}</code><br>
+            Skipped: <code style="color:#2196F3">${{ env.SKIPPED }}</code><br>
+            Total:   <code style="color:#2196F3">${{ env.TOTAL }}</code>
+            </p>
+            <p>https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.REPORT_NUM }}/</p>
 
       - name: Send Telegram notification
         if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
