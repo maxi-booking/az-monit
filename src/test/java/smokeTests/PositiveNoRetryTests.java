@@ -3,6 +3,7 @@ package smokeTests;
 import annotations.NoRetry;
 import config.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 public class PositiveNoRetryTests extends TestBase {
 
     @Test
+    @Disabled //todo disabled cuz of poor connection to Microsoft Azure as of now
     @Feature("Search")
     @Owner("Kratakey")
     @Story("Checking if all the pictures are loaded")
