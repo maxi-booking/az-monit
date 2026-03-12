@@ -30,6 +30,7 @@ jobs:
       job_label: 'Monitoring'
       exclude_tags: 'Impact'
       report_on_failure_only: true
+      notify_on_recovery: true
 
   scheduled-daily:
     if: github.event.schedule == '0 7 * * *'
