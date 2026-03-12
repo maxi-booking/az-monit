@@ -108,6 +108,17 @@ jobs:
             build/allure-results/
           retention-days: 20
 
+      - name: Suppression for nightly reports
+        if: always()
+        run: |
+          HOUR_UTC=$(date -u +%H)
+          HOUR_MSK=$(( (HOUR_UTC + 3) % 24 ))
+          if [ "$HOUR_MSK" -ge 23 ] || [ "$HOUR_MSK" -lt 7 ]; then
+            echo "SUPPRESS_REPORTS=true" >> $GITHUB_ENV
+          else
+            echo "SUPPRESS_REPORTS=false" >> $GITHUB_ENV
+          fi
+
       - name: Calculate REPORT_NUM
         if: always()
         run: |
@@ -128,7 +139,7 @@ jobs:
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Send email
-        if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
+        if: ${{ always() && env.SUPPRESS_REPORTS != 'true' && (!inputs.report_on_failure_only || failure()) }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.yandex.ru
@@ -151,7 +162,7 @@ jobs:
             <p>https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ env.REPORT_NUM }}/</p>
 
       - name: Send Telegram notification
-        if: ${{ always() && (!inputs.report_on_failure_only || failure()) }}
+        if: ${{ always() && env.SUPPRESS_REPORTS != 'true' && (!inputs.report_on_failure_only || failure()) }}
         run: |
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           SUMMARY="allure-report/widgets/summary.json"
