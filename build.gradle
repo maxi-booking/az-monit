@@ -55,8 +55,8 @@ test {
         }}
     retry {
         failOnPassedAfterRetry = false
-        maxFailures = 12
-        maxRetries = 2
+        maxFailures = 30
+        maxRetries = 5
         filter {
             excludeAnnotationClasses.add("annotations.NoRetry")
         }

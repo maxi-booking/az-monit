@@ -2,7 +2,9 @@ package smokeTests;
 
 import config.TestBase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class PositiveTests extends TestBase {
 
