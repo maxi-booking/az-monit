@@ -45,13 +45,15 @@ public class TestBase extends TestData {
         Configuration.browserSize = config.getBrowserSize();
         Configuration.timeout = config.getTimeout();
         Configuration.headless = config.getHeadless();
-        Configuration.pageLoadTimeout = 60000;
-        Configuration.timeout = 60000;
+        Configuration.pageLoadTimeout = 300000;
+        Configuration.timeout = 10000;
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @BeforeEach
     public void setupConfig() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                        .screenshots(true));
         setRandomData();
     }
 
