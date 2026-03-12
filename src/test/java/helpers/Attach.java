@@ -4,9 +4,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
@@ -29,9 +29,8 @@ public class Attach {
     }
 
     @Attachment(value = "{attachName}", type = "image/png")
-    public static byte[] screenshotAs(String lastScreenshot) {
-        String screenshotAsBase64 = Selenide.screenshot(OutputType.BASE64);
-        return Base64.getDecoder().decode(screenshotAsBase64);
+    public static byte[] screenshotAs(String attachName) {
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
     public static void browserConsoleLogs() {
