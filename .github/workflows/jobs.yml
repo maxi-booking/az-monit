@@ -126,7 +126,7 @@ jobs:
         run: |
           HOUR_UTC=$(date -u +%H)
           HOUR_LOCAL=$(( (HOUR_UTC + 3) % 24 ))
-          if [ "$HOUR_LOCAL" -ge 23 ] || [ "$HOUR_LOCAL" -lt 7 ]; then
+          if [ "$HOUR_LOCAL" -ge 0 ] && [ "$HOUR_LOCAL" -lt 6 ]; then
             echo "SUPPRESS_REPORTS=true" >> $GITHUB_ENV
           else
             echo "SUPPRESS_REPORTS=false" >> $GITHUB_ENV
@@ -152,7 +152,7 @@ jobs:
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Send email
-        if: ${{ always() && env.SUPPRESS_REPORTS != 'true' && (!inputs.report_on_failure_only || failure() || (inputs.notify_on_recovery && env.PREV_FAILED == 'true')) }}
+        if: ${{ always() && (!inputs.report_on_failure_only || failure() || (inputs.notify_on_recovery && env.PREV_FAILED == 'true')) }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.yandex.ru
@@ -195,5 +195,29 @@ jobs:
           https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}/"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d parse_mode="Markdown" \
+            --data-urlencode text="$TEXT"
+
+      - name: Send personal Telegram notification
+        if: ${{ always()&& (!inputs.report_on_failure_only || failure() || (inputs.notify_on_recovery && env.PREV_FAILED == 'true')) }}
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          SUMMARY="allure-report/widgets/summary.json"
+          PASSED=$(jq  '.statistic.passed'  $SUMMARY)
+          FAILED=$(jq  '.statistic.failed'  $SUMMARY)
+          BROKEN=$(jq  '.statistic.broken'  $SUMMARY)
+          SKIPPED=$(jq '.statistic.skipped' $SUMMARY)
+          TOTAL=$(jq   '.statistic.total'   $SUMMARY)
+          STATUS="${{ job.status }}"
+          EMOJI=$([ "$FAILED" = "0" ] && [ "$BROKEN" = "0" ] && echo "✅" || echo "❌")
+          TEXT="${EMOJI} *${{ inputs.job_label }} — ${REPO_NAME}*
+            Passed:  \`${PASSED}\`
+            Failed:  \`${FAILED}\`
+            Broken:  \`${BROKEN}\`
+            Skipped: \`${SKIPPED}\`
+            Total:   \`${TOTAL}\`
+          https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${REPORT_NUM}/"
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_PERSONAL_CHAT_ID }}" \
             -d parse_mode="Markdown" \
             --data-urlencode text="$TEXT"
