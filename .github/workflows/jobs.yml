@@ -19,7 +19,6 @@ on:
 env:
   JAVA_VERSION: '17'
   BROWSER_VERSION: '128.0'
-  THREADS: '8'
 
 jobs:
   run-tests:
@@ -69,8 +68,6 @@ jobs:
           ./gradlew clean test \
            --warning-mode all \
             -Denvironment=remote_chrome \
-            -DbrowserVersion=${{ env.BROWSER_VERSION }} \
-            -Dthreads=${{ env.THREADS }} \
             $EXTRA_ARGS \
             --no-daemon
 
@@ -128,8 +125,8 @@ jobs:
         if: always()
         run: |
           HOUR_UTC=$(date -u +%H)
-          HOUR_MSK=$(( (HOUR_UTC + 3) % 24 ))
-          if [ "$HOUR_MSK" -ge 23 ] || [ "$HOUR_MSK" -lt 7 ]; then
+          HOUR_LOCAL=$(( (HOUR_UTC + 3) % 24 ))
+          if [ "$HOUR_LOCAL" -ge 23 ] || [ "$HOUR_LOCAL" -lt 7 ]; then
             echo "SUPPRESS_REPORTS=true" >> $GITHUB_ENV
           else
             echo "SUPPRESS_REPORTS=false" >> $GITHUB_ENV
