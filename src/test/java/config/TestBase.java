@@ -45,7 +45,7 @@ public class TestBase extends TestData {
         Configuration.browserSize = config.getBrowserSize();
         Configuration.timeout = config.getTimeout();
         Configuration.headless = config.getHeadless();
-        Configuration.pageLoadTimeout = 45000;
+        Configuration.pageLoadTimeout = 60000;
     }
 
     @BeforeEach

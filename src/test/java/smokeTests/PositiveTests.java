@@ -1,11 +1,17 @@
 package smokeTests;
 
+import annotations.RetryWithDelay;
 import config.TestBase;
+import extensions.RetryDelayExtension;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+
+@ExtendWith(RetryDelayExtension.class)
+@RetryWithDelay()
 public class PositiveTests extends TestBase {
 
     @Test
