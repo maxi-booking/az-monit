@@ -47,6 +47,7 @@ public class TestBase extends TestData {
         Configuration.headless = config.getHeadless();
         Configuration.pageLoadTimeout = 60000;
         Configuration.timeout = 15000;
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @BeforeEach
