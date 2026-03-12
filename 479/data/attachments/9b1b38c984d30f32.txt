@@ -1,3 +1,0 @@
-[2026-03-11T20:26:57.357Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
-[2026-03-11T20:26:57.358Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
-[2026-03-11T20:26:57.358Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
