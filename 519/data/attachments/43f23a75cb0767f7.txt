@@ -1,8 +1,0 @@
-[2026-03-12T21:08:42.563Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:42.563Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:42.563Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:46.476Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:46.476Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:46.477Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
-[2026-03-12T21:08:47.211Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
-[2026-03-12T21:08:59.478Z] [SEVERE] https://mc.yandex.ru/metrika/tag.js 455 WebSocket connection to 'wss://mc.yandex.com/solid.ws' failed: Error during WebSocket handshake: Unexpected response code: 504
