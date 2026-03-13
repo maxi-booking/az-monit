@@ -1,0 +1,11 @@
+[2026-03-13T10:01:59.220Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:01:59.220Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:01:59.220Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:02:01.276Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:02:01.277Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:02:01.277Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-03-13T10:02:01.513Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-03-13T10:02:03.967Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=8e5708bf-1f67-d75b-4ec2-0ab576040b41&token=10969.wf09N5qhWWvtpF-hzZfKko6wGOxl3wCDuKjFJI6YBnlvWYuIOuOEoBaB490c468tdmdh7gvOycYC-_zDTPWU1Nvt7rQu9He1zVXU4IfgmRc%2C.kgNBRvVicL-9OMVwhnAemIv02UY%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-13T10:02:04.755Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide_secondary?cid=10885255&scid=fbd5ecf0-2ebc-2d96-1d5b-a5c60c236595&token=10969.wdXZJ5PYV-sWi6YuxvKItYo0DrDbr-PMBMX11MAQe1yarCRYbRgnDcQlA032wDOpiTy6zK9rY-LHovBv3Pw0encu5xEx9as7KNgF8NQmEgY%2C.qpebqYvfdr3bt1oIQVAGWZrrwio%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-13T10:02:04.895Z] [SEVERE] https://mc.yandex.ru/sync_cookie_image_finish_secondary?cid=10885255&redirect_domain=mc.yandex.com&scid=85608a0b-122c-3c4a-b189-16ec49222700&token=10969.BLfQsnhaWJkmJfp_ty3cDgaIe-U4CzA6-Cr1Ya_Rhx7sx8CgoMihlay-fg3vlAC4j3lCK8TRfRUpSsNW92UItOKdExta2J4TtD2ZHfgftQ1rQ_K5uUc2dqXPBEX2CSXjIMiKKBmEN34i8avM36bviStg0RsbDIP2nOIb-t_9uBnYoIwzYeglU3qL8rmZk2Jz-YMNC8fBdVUN0AxuJyuZRw%2C%2C.xmvuzQpZyeYAUkmpOHH-3jL4Tfs%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-13T10:02:05.112Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
