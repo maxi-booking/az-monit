@@ -1,0 +1,9 @@
+[2026-03-14T05:13:31.234Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:31.234Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:31.234Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:33.883Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:33.883Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:33.883Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-03-14T05:13:34.180Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-03-14T05:13:36.093Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=605a3419-663c-79d5-6b5b-0df1c07ee253&token=10970.4x-s7wGTnMQaoMfiQXZvyYc8kfaKmZwNrg_2VCt0pwfaHUV5bdRXm4Y_jCmTMjIWg_PDR7K9H76I22j7IIP_RAWxcexAbznn4dTFFmPT1v4%2C.FUCPxMQsepUAGdXbLWo11wcyaBg%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-14T05:13:37.186Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide_secondary?cid=10885255&scid=eb715ea2-fe91-1497-a80c-8e77e2d716c6&token=10970.EVHBITo6fOjxgfSsseQsANgy2uWG-g2m1Nhzd44fumv4ciL37syyzZ-lrjoajvqMbAQ7v149Xj2M2L_3jngtbehX3TgTC5GAXTQGN1Ao7_0%2C.Ww6P-IvVFSsgVnJy9rBO2o5xM3k%2C - Failed to load resource: the server responded with a status of 400 ()
