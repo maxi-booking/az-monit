@@ -1,7 +1,0 @@
-[2026-03-14T03:48:40.292Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:40.293Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:40.293Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:42.636Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:42.636Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:42.636Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
-[2026-03-14T03:48:42.861Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
