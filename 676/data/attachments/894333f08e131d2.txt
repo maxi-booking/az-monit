@@ -1,0 +1,9 @@
+[2026-03-18T12:52:04.984Z] [SEVERE] https://az.maxibooking.ru/search/js/bootstrap-select.min.js 6:160 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.984Z] [SEVERE] https://az.maxibooking.ru/search/js/jquery.mask.min.js 2:137 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.988Z] [SEVERE] https://az.maxibooking.ru/search/js/chosen.jquery.js 477:2 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.989Z] [SEVERE] https://az.maxibooking.ru/search/js/bootstrap-datepicker.min.js 6:117 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.990Z] [SEVERE] https://az.maxibooking.ru/search/js/bootstrap-datepicker.ru.min.js 0:508 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.992Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/jquery.easydropdown.js 477:3 Uncaught ReferenceError: jQuery is not defined
+[2026-03-18T12:52:04.994Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/form.js 20:0 Uncaught ReferenceError: $ is not defined
+[2026-03-18T12:52:05.409Z] [SEVERE] https://az.maxibooking.ru/search/js/icheck.min.js 5:195 Uncaught TypeError: Cannot read properties of undefined (reading 'fn')
+[2026-03-18T12:52:05.418Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/search.js 377:0 Uncaught ReferenceError: $ is not defined
