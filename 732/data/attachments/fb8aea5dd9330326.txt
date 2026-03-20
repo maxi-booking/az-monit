@@ -1,0 +1,11 @@
+[2026-03-20T16:34:48.377Z] [WARNING] https://azovsky.ru/ 46 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:48.378Z] [WARNING] https://azovsky.ru/ 49 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:48.379Z] [WARNING] https://azovsky.ru/ 52 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:50.665Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:50.665Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:50.667Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-03-20T16:34:51.012Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-03-20T16:34:53.255Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=8988b52a-41e2-9398-8960-a47797a286c4&token=10976.aneXAsYZBWg-4CXRxbv3a4visCF6XcWCiNEys_c2ALwgx5SQn5rFb9peh3Og7ewoBq5mZcerilLE9uBaacDpjTSEDBLR1up-lzP2mx72ElI%2C.ewoFtA9kQR89drnC0ynR_k97Qs8%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-20T16:34:53.967Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
+[2026-03-20T16:34:54.101Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide_secondary?cid=10885255&scid=0bde62f9-b466-99d7-5a96-3c96ab5da2f7&token=10976.xw9BLUOcqRMuA4cId39ojiKPEkuLXuRvsqupfWq96_oTumyTEpaN7PUl9nTOJe5JMEclPJbOgwqBcXynYjvx1zV34buxjnLtofVrCm40SFY%2C.XVoJLfPGnsB4KebgQVW9Wm6bBkY%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-03-20T16:34:54.241Z] [SEVERE] https://mc.yandex.ru/sync_cookie_image_finish_secondary?cid=10885255&redirect_domain=mc.yandex.com&scid=a043753f-cc2c-73b6-3ef4-6d2790513311&token=10976.Qi8CrP_T56NsEpUpCwdR_mlxQEHdOuoy-DVAmJ5IDch3Y-1pXlRimoYJMUQa0M2Wd-0lur_WOUHBdtmnizi-HiecnaI6e5QWzCRLSIFsxxe2cHeSbWN7ySa4GtQ2qQcuDFe0m31gmKQU--0kVE1rM7VVt3Zg0wGj1LkUlpIMbjIn3EGTMJwWpW7Ok3XGe9vTWZ23BqgTuLJv26RpfaTLpQ%2C%2C.nI5lxjCqwhFZr2ACWuo9E6BR0r0%2C - Failed to load resource: the server responded with a status of 400 ()
