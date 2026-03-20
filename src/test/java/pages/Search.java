@@ -75,8 +75,8 @@ public class Search extends TestBase {
     public void confirmReservation() {
         step("Complete reservation with data", () -> {
             $("#sign-page #form").shouldNotBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
-            $$("article div.maxi[itemprop='articleBody'] p").get(54).shouldHave(exactText(" Спасибо, что Вы выбрали нас!"));
-            $$("div.maxi[itemprop='articleBody'] p").get(55).shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
+            $$("div[itemtype='https://schema.org/Article'] p").get(17).shouldHave(exactText("Спасибо, что Вы выбрали нас!"));
+            $$("div[itemtype='https://schema.org/Article'] p").get(18).shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
         });
     }
 
