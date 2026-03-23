@@ -5,7 +5,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "*/30 * * * *"
-    - cron: "0 7 * * *"
+    - cron: "15 7 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.schedule || github.event_name }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
