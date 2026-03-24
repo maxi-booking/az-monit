@@ -37,7 +37,7 @@ jobs:
       notify_on_recovery: true
 
   scheduled-daily:
-    if: github.event.schedule == '0 7 * * *'
+    if: github.event.schedule == '15 7 * * *'
     uses: ./.github/workflows/jobs.yml
     secrets: inherit
     with:
