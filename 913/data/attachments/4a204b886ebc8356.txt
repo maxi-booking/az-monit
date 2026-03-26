@@ -1,0 +1,14 @@
+[2026-03-26T23:55:50.916Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-select.min.js 6:160 Uncaught ReferenceError: jQuery is not defined
+[2026-03-26T23:55:50.916Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/jquery.mask.min.js 2:137 Uncaught ReferenceError: jQuery is not defined
+[2026-03-26T23:55:50.917Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-datepicker.min.js 6:117 Uncaught ReferenceError: jQuery is not defined
+[2026-03-26T23:55:50.917Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-datepicker.ru.min.js 0:508 Uncaught ReferenceError: jQuery is not defined
+[2026-03-26T23:55:50.919Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/jquery.easydropdown.js 477:3 Uncaught ReferenceError: jQuery is not defined
+[2026-03-26T23:55:50.921Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/form.js 20:0 Uncaught ReferenceError: $ is not defined
+[2026-03-26T23:55:52.382Z] [WARNING] https://azovsky.ru/ 48 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:52.382Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:52.382Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:55.445Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:55.445Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:55.445Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-03-26T23:55:55.679Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1646:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-03-26T23:55:56.820Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
