@@ -86,14 +86,16 @@ jobs:
       - name: Copy history from last report
         if: always()
         run: |
-          LAST=$(ls -d gh-pages/[0-9]*/ 2>/dev/null | sed 's|gh-pages/||;s|/||' | sort -n | tail -1)
-          if [ -n "$LAST" ] && [ -d "gh-pages/$LAST/history" ]; then
-            mkdir -p build/allure-results
-            cp -r gh-pages/$LAST/history build/allure-results/
-            echo "Copied history from report #$LAST"
-          else
-            echo "No previous history found"
-          fi
+          for LAST in $(ls -d gh-pages/[0-9]*/ 2>/dev/null \
+              | sed 's|gh-pages/||;s|/||' | sort -n -r); do
+            if [ -d "gh-pages/$LAST/history" ] \
+                && [ -n "$(ls -A gh-pages/$LAST/history 2>/dev/null)" ]; then
+              mkdir -p build/allure-results
+              cp -r gh-pages/$LAST/history build/allure-results/
+              echo "Copied history from report #$LAST"
+              break
+            fi
+          done
 
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
