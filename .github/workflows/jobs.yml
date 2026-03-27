@@ -40,7 +40,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Pull Chrome image
-        run: docker pull selenoid/chrome:${{ env.BROWSER_VERSION }}
+        uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 30
+          max_attempts: 3
+          command: docker pull selenoid/chrome:${{ env.BROWSER_VERSION }}
 
       - name: Start Selenoid
         run: |
