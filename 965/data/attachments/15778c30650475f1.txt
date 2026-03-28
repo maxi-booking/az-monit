@@ -1,0 +1,6 @@
+[2026-03-28T20:20:48.400Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-select.min.js 6:160 Uncaught ReferenceError: jQuery is not defined
+[2026-03-28T20:20:48.400Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/jquery.mask.min.js 2:137 Uncaught ReferenceError: jQuery is not defined
+[2026-03-28T20:20:48.401Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-datepicker.min.js 6:117 Uncaught ReferenceError: jQuery is not defined
+[2026-03-28T20:20:48.402Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/bootstrap-datepicker.ru.min.js 0:508 Uncaught ReferenceError: jQuery is not defined
+[2026-03-28T20:20:48.403Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/jquery.easydropdown.js 477:3 Uncaught ReferenceError: jQuery is not defined
+[2026-03-28T20:20:48.405Z] [SEVERE] https://az.maxibooking.ru/bundles/mbhonlinebooking/js/form.js 20:0 Uncaught ReferenceError: $ is not defined
