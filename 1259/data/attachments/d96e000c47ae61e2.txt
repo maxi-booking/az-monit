@@ -1,0 +1,12 @@
+[2026-04-10T17:12:56.638Z] [WARNING] https://azovsky.ru/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:12:56.639Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:12:56.639Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:12:59.891Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:12:59.893Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:12:59.893Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-10T17:13:00.351Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1760:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-04-10T17:13:02.272Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=408b7aa9-e9c6-b5cf-43fb-181ec5285ac2&token=10997.oCbdLHmDDoZm05zfFQd7GMqqwoeLhVA5rxgsVOpvLwZvGf9VIi_GILabEXmiDyA-LH8MalvRZ-TDqvWOtMFAhthRVgdobgPXWW87px0OEPw%2C.OaY1aS3Y2TpQnTL4OzrY06JddrQ%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-04-10T17:13:03.370Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide_secondary?cid=10885255&scid=53a4381c-b3cf-27ed-e4d1-08d8b480d567&token=10997.wESxzoLo5HZm6j9xn8N0LuihZCSmrcQBM_6wMU-feDLlxTVmNMsRgnJWt3e-1kG5skyTTki1fO4xiJ9TDKZ2cInjSFb_8y9aav_ArND896M%2C.Fo-83C3Ou5GvNz4rrF6jPrct7ds%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-04-10T17:13:05.811Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/671/u5im315o/xhr_send?ci=556652387.544200491.1775841181&hi=916955204&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1775841185645 - Failed to load resource: the server responded with a status of 404 ()
+[2026-04-10T17:13:10.982Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/570/edtqqx3u/xhr_send?ci=556652387.544200491.1775841181&hi=916955204&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1775841190819 - Failed to load resource: the server responded with a status of 404 ()
+[2026-04-10T17:13:14.979Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/838/z04rhdws/xhr_send?ci=556652387.544200491.1775841181&hi=916955204&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1775841194814 - Failed to load resource: the server responded with a status of 404 ()
