@@ -1,0 +1,8 @@
+[2026-04-18T08:40:15.837Z] [WARNING] https://azovsky.ru/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:15.837Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:15.837Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:18.330Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ - Failed to load resource: the server responded with a status of 500 ()
+[2026-04-18T08:40:18.350Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:18.350Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:18.350Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-18T08:40:20.370Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=9998641d-fe02-6e27-289c-29c5a4be678d&token=11005.zUKiMrSTEHIWETkW0XWaHOFlAogJcQF6RmrMq2PKOanJWmRAoW5vR98O7m5wcO6-TyRC8UF7TjEpvRneqjntfeG0VkjIDUlXo0hXden9La6FBZjqDo4Da4CT4YxGkQDQjMmmK_nC6lFSCMHzr5rffB4-KfhrhSK_PVOLYaTM_xwUzOUMJ5nInBQTOFHoYLrji9f_Ckmvtm1ns5PTau0Jeoj9bKKqVYgNwWsEv6cM-LU%2C.Ny0-TfJzB-mIPcBPTHi-koTmc8o%2C - Failed to load resource: the server responded with a status of 400 ()
