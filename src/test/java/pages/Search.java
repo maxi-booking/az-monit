@@ -38,6 +38,7 @@ public class Search extends TestBase {
 
     public void clickReserveARoom(int order) {
         step("Click to reserve a room", () -> {
+            $("#search-form").shouldBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
             $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start)).
                     $(".btns-container .btn-booking-reservation").click();
         });
