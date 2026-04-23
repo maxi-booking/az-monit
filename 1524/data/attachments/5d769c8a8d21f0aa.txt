@@ -1,0 +1,9 @@
+[2026-04-23T20:44:44.574Z] [WARNING] https://azovsky.ru/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:44.575Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:44.575Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:47.244Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 48 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:47.244Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:47.244Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-04-23T20:44:47.707Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1752:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-04-23T20:44:49.826Z] [SEVERE] https://mc.yandex.com/sync_cookie_image_decide?cid=10885255&scid=a93501cc-3659-3446-8c1e-8578773d21fe&token=11010.OBWjWts3S1hlq6qQThE4H8T1tbn7cyq2Wxt1aaJXccFtxaIKfqWOWKyh_a_5-cAogFVJz2kJ710LtpfZ-rgua5xtjoJdNkozrLEdBRmr30U%2C.fqVLJvbW-Hq978Mx-bGtcpxZtS4%2C - Failed to load resource: the server responded with a status of 400 ()
+[2026-04-23T20:44:51.485Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
