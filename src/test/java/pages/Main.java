@@ -15,10 +15,17 @@ public class Main extends TestBase {
         }
     }
 
+    public void closeVPNAlert() {
+        if ($("#vpn-geo-gate-root").exists()) {
+            $("#vpn-geo-gate-root vpn-geo-gate__btn").click();
+        }
+    }
+
     public void openPage(String url) {
         step("Open URL: " + url, () -> {
             open(url);
             maximizeBrowserWindow();
+            closeVPNAlert();
         });
     }
 }
