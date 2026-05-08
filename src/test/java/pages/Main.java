@@ -17,7 +17,7 @@ public class Main extends TestBase {
 
     public void closeVPNAlert() {
         if ($("#vpn-geo-gate-root").exists()) {
-            $("#vpn-geo-gate-root vpn-geo-gate__btn").click();
+            $("#vpn-geo-gate-root .vpn-geo-gate__btn").click();
         }
     }
 
