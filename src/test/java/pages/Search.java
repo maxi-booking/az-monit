@@ -39,9 +39,9 @@ public class Search extends TestBase {
     public void clickReserveARoom(int order) {
         step("Click to reserve a room", () -> {
             $("#search-form").shouldBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
-            sleep(3000);
-            $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start)).
-                    $(".btns-container .btn-booking-reservation").click();
+            $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start));
+            sleep(1000);
+            $(".btns-container .btn-booking-reservation").click();
         });
     }
 
@@ -94,7 +94,7 @@ public class Search extends TestBase {
         step("Check that images on the whole page are loaded. Map size: total cards - " + totalCards + ", total images - " + totalImages, () -> {
             SoftAssertions assertion = new SoftAssertions();
             imagesMap.forEach((cardIndex, imageCount) -> {
-                for (int imageIndex = 0; imageIndex < imageCount; imageIndex++){
+                for (int imageIndex = 0; imageIndex < imageCount; imageIndex++) {
                     var card = $$("#online-booking-search .s_results").get(cardIndex);
                     var img = card.$$(".imghotel img").get(imageIndex);
 
