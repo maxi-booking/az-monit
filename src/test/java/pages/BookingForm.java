@@ -27,7 +27,7 @@ public class BookingForm extends TestBase {
 
     public void initializeTheSearch() {
         step("Press 'Search' button", () -> {
-            sleep(1000);
+            sleep(3000);
             $("#search-form .booking-submit input[type='submit']").click();
         });
     }
