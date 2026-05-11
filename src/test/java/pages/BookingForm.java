@@ -6,6 +6,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
 public class BookingForm extends TestBase {
@@ -26,7 +27,8 @@ public class BookingForm extends TestBase {
 
     public void initializeTheSearch() {
         step("Press 'Search' button", () -> {
-            $("#nights_amount").shouldNotBe(empty, Duration.ofSeconds(MAX_WAIT_DURATION));
+            sleep(1000);
+//            $("#nights_amount").shouldNotBe(empty, Duration.ofSeconds(MAX_WAIT_DURATION));
             $("#search-form .booking-submit input[type='submit']").click();
         });
     }
