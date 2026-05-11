@@ -28,7 +28,6 @@ public class BookingForm extends TestBase {
     public void initializeTheSearch() {
         step("Press 'Search' button", () -> {
             sleep(1000);
-//            $("#nights_amount").shouldNotBe(empty, Duration.ofSeconds(MAX_WAIT_DURATION));
             $("#search-form .booking-submit input[type='submit']").click();
         });
     }
