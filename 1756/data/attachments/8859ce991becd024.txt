@@ -1,6 +1,0 @@
-[2026-05-08T08:58:50.241Z] [WARNING] https://azovsky.ru/ 48 <link rel=preload> has an unsupported `type` value
-[2026-05-08T08:58:50.241Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
-[2026-05-08T08:58:50.241Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
-[2026-05-08T08:58:55.773Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/728/xg5nudvo/xhr_send?ci=583553035.573146723.1778230733&hi=963966964&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1778230735590 - Failed to load resource: the server responded with a status of 404 ()
-[2026-05-08T08:58:58.531Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/789/x14munat/xhr_send?ci=583553035.573146723.1778230733&hi=963966964&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1778230738375 - Failed to load resource: the server responded with a status of 404 ()
-[2026-05-08T08:59:32.559Z] [SEVERE] https://prod-msk-comagic-comagic-server-net.novofon.ru/comagic/226/ve1mypgs/xhr_send?ci=583553035.573146723.1778230733&hi=963966964&k=Zhn4nViFtRGgUd8n_H98yg_aPxPGhLV4&sk=&ur=https%3A%2F%2Fazovsky.ru%2F&t=1778230772429 - Failed to load resource: the server responded with a status of 404 ()
