@@ -41,8 +41,8 @@ public class Search extends TestBase {
             $("#search-form").shouldBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
             sleep(1000);
             $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start));
-            sleep(2000);
-            $(".btns-container .btn-booking-reservation").click();
+            sleep(500);
+            $("#online-booking-search section.s_results .btns-container .btn-booking-reservation").click();
         });
     }
 
