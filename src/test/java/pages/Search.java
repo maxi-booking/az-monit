@@ -44,7 +44,8 @@ public class Search extends TestBase {
             //todo remove code below
             sleep(1000);
             if(!$("#sign-page #form").exists()) {
-                $$(".btns-container").get(0).$("a.btn-booking-reservation").scrollIntoView(instant()).doubleClick();
+                $$(".btns-container").get(0).$("a.btn-booking-reservation").doubleClick();
+                sleep(3000);
             }
         });
     }
