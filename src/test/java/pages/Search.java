@@ -45,10 +45,14 @@ public class Search extends TestBase {
             //todo remove code below
             sleep(1000);
             if(!$("#sign-page #form").exists()) {
-                $$(".btns-container").get(0).$(".btn-booking-reservation").hover();
+                $$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").hover();
                 sleep(550);
-                $$(".btns-container").get(0).$(".btn-booking-reservation").click();
-                sleep(3000);
+                $$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").click();
+                sleep(2000);
+            }
+            if(!$("#sign-page #form").exists()) {
+                actions().moveToElement($$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").toWebElement()).pause(Duration.ofMillis(300)).click().perform();
+                sleep(2000);
             }
         });
     }
