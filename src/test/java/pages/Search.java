@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static com.codeborne.selenide.ClickOptions.usingJavaScript;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.ScrollIntoViewOptions.Block.start;
 import static com.codeborne.selenide.ScrollIntoViewOptions.instant;
@@ -44,7 +45,7 @@ public class Search extends TestBase {
             //todo remove code below
             sleep(1000);
             if(!$("#sign-page #form").exists()) {
-                $$(".btns-container").get(0).$("a.btn-booking-reservation").doubleClick();
+                $$(".btns-container").get(0).$(".btn-booking-reservation").click(usingJavaScript());
                 sleep(3000);
             }
         });
