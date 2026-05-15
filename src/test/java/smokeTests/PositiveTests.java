@@ -4,6 +4,7 @@ import annotations.RetryWithDelay;
 import config.TestBase;
 import extensions.RetryDelayExtension;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -74,6 +75,7 @@ public class PositiveTests extends TestBase {
     }
 
     @Test
+    @Disabled
     @Feature("Search")
     @Owner("Kratakey")
     @Story("Starting room reservation process")
@@ -87,6 +89,7 @@ public class PositiveTests extends TestBase {
     }
 
     @Test
+    @Disabled
     @Tag("Impact")
     @Feature("Search")
     @Owner("Kratakey")

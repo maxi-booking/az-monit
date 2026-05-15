@@ -8,7 +8,6 @@ import java.time.Duration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static com.codeborne.selenide.ClickOptions.usingJavaScript;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.ScrollIntoViewOptions.Block.start;
 import static com.codeborne.selenide.ScrollIntoViewOptions.instant;
@@ -42,18 +41,6 @@ public class Search extends TestBase {
             $("#search-form").shouldBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
             $$("#online-booking-search section.s_results").get(order).scrollIntoView(instant().block(start)).
                     $(".btns-container .btn-booking-reservation").click();
-            //todo remove code below
-            sleep(1000);
-            if(!$("#sign-page #form").exists()) {
-                $$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").hover();
-                sleep(550);
-                $$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").click();
-                sleep(2000);
-            }
-            if(!$("#sign-page #form").exists()) {
-                actions().moveToElement($$("#online-booking-search section.s_results").get(order).$(".btns-container").$(".btn-booking-reservation").toWebElement()).pause(Duration.ofMillis(300)).click().perform();
-                sleep(2000);
-            }
         });
     }
 
