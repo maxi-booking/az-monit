@@ -75,10 +75,10 @@ public class Search extends TestBase {
     }
 
     public void confirmReservation() {
-        step("Complete reservation with data", () -> {
+        step("Confirm reservation is succesful", () -> {
             $("#sign-page #form").shouldNotBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
-            $$("div[itemtype='https://schema.org/Article'] p").get(17).shouldHave(exactText("Спасибо, что Вы выбрали нас!"));
-            $$("div[itemtype='https://schema.org/Article'] p").get(18).shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
+            $("#azovsky-mbresults-content").shouldHave(exactText("Спасибо, что Вы выбрали нас!"));
+            $("#azovsky-mbresults-content").shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
         });
     }
 
