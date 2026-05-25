@@ -77,8 +77,8 @@ public class Search extends TestBase {
     public void confirmReservation() {
         step("Confirm reservation is succesful", () -> {
             $("#sign-page #form").shouldNotBe(visible, Duration.ofSeconds(MAX_WAIT_DURATION));
-            $("#azovsky-mbresults-content").shouldHave(exactText("Спасибо, что Вы выбрали нас!"));
-            $("#azovsky-mbresults-content").shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
+            $("#azovsky-mbresults-content p", 0).shouldHave(exactText("Спасибо, что Вы выбрали нас!"));
+            $("#azovsky-mbresults-content p", 1).shouldHave(exactText("В скором времени с Вами свяжутся наши менеджеры."));
         });
     }
 
