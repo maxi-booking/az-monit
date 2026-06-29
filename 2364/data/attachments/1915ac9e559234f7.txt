@@ -1,0 +1,9 @@
+[2026-06-29T10:05:29.988Z] [WARNING] https://azovsky.ru/ 51 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:29.989Z] [WARNING] https://azovsky.ru/ 54 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:29.989Z] [WARNING] https://azovsky.ru/ 57 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:31.434Z] [WARNING] https://azovsky.ru/ 3369 Allow attribute will take precedence over 'allowfullscreen'.
+[2026-06-29T10:05:34.045Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 51 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:34.045Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 54 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:34.045Z] [WARNING] https://azovsky.ru/oplatit-uslugi/ 57 <link rel=preload> has an unsupported `type` value
+[2026-06-29T10:05:35.542Z] [SEVERE] https://azovsky.ru/oplatit-uslugi/ 1758:419 Uncaught SyntaxError: Unexpected token 'var'
+[2026-06-29T10:05:37.263Z] [SEVERE] https://az.maxibooking.ru/management/online/api_payment_form/file/5b3dee1ecd572258ec6924d1/load 82:50 Uncaught DOMException: Failed to read a named property 'origin' from 'Loc…/azovsky.ru" from accessing a cross-origin frame.
