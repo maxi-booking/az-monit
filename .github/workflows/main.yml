@@ -1,11 +1,11 @@
 name: Selenide Java CI
 
 on:
-  push:
+  # push:
   workflow_dispatch:
-  schedule:
-    - cron: "*/30 * * * *"
-    - cron: "15 7 * * *"
+  # schedule:
+  #   - cron: "*/30 * * * *"
+  #   - cron: "15 7 * * *"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.schedule || github.event_name }}
